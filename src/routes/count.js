@@ -13,7 +13,7 @@ router.get('/count', (request, response) => {
         if (err) throw err;
         let database = db.db("gotSample");
         database.collection("got").countDocuments({}, (err, count) => {
-            response.send("Total number of battles occurred :" + count);
+            response.json({"Total number of battles occurred":count});
             console.log("Total battles :" + count);
             db.close();
         });
